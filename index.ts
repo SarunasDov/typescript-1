@@ -51,7 +51,7 @@
 // // Klasės (https://www.typescriptlang.org/docs/handbook/2/classes.html)
 // class Gyvenviete {
 //     public readonly pavadinimas: string;
-    
+
 //     // Kvadratiniai kilometrai
 //     public readonly plotas: number;
 
@@ -109,32 +109,57 @@
  * egzistuoti (metodas turi grąžinti boolean reikšmę).
  * Spausdindami duomenis pasakykite, ar toks trikampis gali
  * egzistuoti.
+ * 
+ * 8. Papildykite klase metodu, kuris nurodo, ar trikampis yra statusis.
  */
 
 
 class Trikampis {
-    public  a: number;   
-    public  b: number;
-    public  c: number;
+    public a: number;
+    public b: number;
+    public c: number;
 
-constructor(a: number, b: number, c: number) {
-    console.log("Konstruktorius iskviestas");
+    constructor(a: number, b: number, c: number) {
+        console.log("Konstruktorius iskviestas");
 
         this.a = a;
         this.b = b;
         this.c = c;
-}
-public spausdintiDuomenis(): void {
+    }
+    public spausdintiDuomenis(): void {
 
         console.log(`Krastine A: ${this.a}`);
         console.log(`Krastine B: ${this.b}`);
         console.log(`Krastine C: ${this.c}`);
-        console.log(`Perimetras: ${this.perimetras()}`)
+        console.log(`Perimetras: ${this.perimetras}`)
+
+        if (this.arTrikampisEgzistuoja) {
+            console.log("Trikampis egzistuoja!");
+        } else {
+            console.log("Trikampis neagzistuoja!");
+        }
+        console.log("------------");
+
+        if (this.arTrikampisStatusis) {
+            console.log("Trikampis status!");
+        } else {
+            console.log("Trikampis ne status!");
+        }
         console.log("------------");
     }
 
-    public perimetras(): number {
-            return this.a + this.b + this.c;
+    public get perimetras(): number {
+        return this.a + this.b + this.c;
+    }
+
+    public get arTrikampisEgzistuoja(): boolean {
+        return this.a + this.b > this.c &&
+            this.b + this.c > this.a &&
+            this.c + this.a > this.b;
+    }
+
+    public get arTrikampisStatusis(): boolean {
+        return this.a * this.a + this.b * this.b === this.c * this.c;
     }
 }
 
