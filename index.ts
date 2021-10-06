@@ -104,9 +104,9 @@
 
 
 class Trikampis {
-  public  a: number;   
-  public  b: number;
-  public  c: number;
+    public  a: number;   
+    public  b: number;
+    public  c: number;
 
 constructor(a: number, b: number, c: number) {
     console.log("Konstruktorius iskviestas");
@@ -116,7 +116,7 @@ constructor(a: number, b: number, c: number) {
         this.c = c;
 }
 public spausdintiDuomenis(): void {
-    
+
         console.log(`Trikampio krastines yra: ${this.a}, ${this.b}, ${this.c}`);
         console.log("------------");
     }
