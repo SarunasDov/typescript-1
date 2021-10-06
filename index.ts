@@ -100,6 +100,15 @@
  *
  * 5. Aprašykite metodą "spausdintiDuomenis()", kuris atspausdina
  * visus trikampio duomenis (kraštines) į konsolę.
+ * 
+ * 6. Papildykite klasę metodu, kuris apskaičiuoja ir grąžina
+ * trikampio perimetrą. Spausdinant trikampio duomenis
+ * atspausdinkite ir jo perimetrą.
+ * 
+ * 7. Parašykite metodą, kuris nusako, ar toks trikampis gali
+ * egzistuoti (metodas turi grąžinti boolean reikšmę).
+ * Spausdindami duomenis pasakykite, ar toks trikampis gali
+ * egzistuoti.
  */
 
 
@@ -117,11 +126,20 @@ constructor(a: number, b: number, c: number) {
 }
 public spausdintiDuomenis(): void {
 
-        console.log(`Trikampio krastines yra: ${this.a}, ${this.b}, ${this.c}`);
+        console.log(`Krastine A: ${this.a}`);
+        console.log(`Krastine B: ${this.b}`);
+        console.log(`Krastine C: ${this.c}`);
+        console.log(`Perimetras: ${this.perimetras()}`)
         console.log("------------");
+    }
+
+    public perimetras(): number {
+            return this.a + this.b + this.c;
     }
 }
 
 const trikampis1 = new Trikampis(5, 6, 14);
+const trikampis2 = new Trikampis(12, 16, 25);
 
 trikampis1.spausdintiDuomenis();
+trikampis2.spausdintiDuomenis();
