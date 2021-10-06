@@ -1,10 +1,15 @@
-var Trikampiai = (function () {
-    function Trikampiai(a, b, c) {
-        this.printSidesLenght(a, b, c);
+var Trikampis = (function () {
+    function Trikampis(a, b, c) {
+        console.log("Konstruktorius iskviestas");
+        this.a = a;
+        this.b = b;
+        this.c = c;
     }
-    Trikampiai.prototype.printSidesLenght = function (a, b, c) {
-        console.log("Trikampiu krastines ilgis : a -" + a + ", b -" + b + ", c -" + c);
+    Trikampis.prototype.spausdintiDuomenis = function () {
+        console.log("Trikampio krastines yra: " + this.a + ", " + this.b + ", " + this.c);
+        console.log("------------");
     };
-    return Trikampiai;
+    return Trikampis;
 }());
-var trikampiai = new Trikampiai(10, 20, 30);
+var trikampis1 = new Trikampis(5, 6, 14);
+trikampis1.spausdintiDuomenis();

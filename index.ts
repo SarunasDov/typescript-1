@@ -103,15 +103,25 @@
  */
 
 
-class Trikampiai {
-    constructor(a: number, b: number, c:number){
-        this.printSidesLenght(a,b,c);
+class Trikampis {
+  public  a: number;   
+  public  b: number;
+  public  c: number;
 
-    }
+constructor(a: number, b: number, c: number) {
+    console.log("Konstruktorius iskviestas");
 
-    printSidesLenght(a: number, b: number, c:number): void {
-        console.log(`Trikampiu krastines ilgis : a -${a}, b -${b}, c -${c}`);
+        this.a = a;
+        this.b = b;
+        this.c = c;
+}
+public spausdintiDuomenis(): void {
+    
+        console.log(`Trikampio krastines yra: ${this.a}, ${this.b}, ${this.c}`);
+        console.log("------------");
     }
 }
 
-const trikampiai = new Trikampiai(10,20,30);
+const trikampis1 = new Trikampis(5, 6, 14);
+
+trikampis1.spausdintiDuomenis();
