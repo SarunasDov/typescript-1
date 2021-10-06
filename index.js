@@ -1,43 +1,43 @@
 class Trikampis {
     constructor(a, b, c) {
-        console.log("Konstruktorius iskviestas");
         this.a = a;
         this.b = b;
         this.c = c;
     }
-    spausdintiDuomenis() {
-        console.log(`Krastine A: ${this.a}`);
-        console.log(`Krastine B: ${this.b}`);
-        console.log(`Krastine C: ${this.c}`);
+    spasudintiDuomenis() {
+        console.log(`Krastine a: ${this.a}`);
+        console.log(`Krastine b: ${this.b}`);
+        console.log(`Krastine b: ${this.c}`);
         console.log(`Perimetras: ${this.perimetras}`);
         if (this.arTrikampisEgzistuoja) {
             console.log("Trikampis egzistuoja!");
         }
         else {
-            console.log("Trikampis neagzistuoja!");
+            console.log("Trikampis neegzistuoja!");
         }
-        console.log("------------");
-        if (this.arTrikampisStatusis) {
-            console.log("Trikampis status!");
-        }
-        else {
-            console.log("Trikampis ne status!");
-        }
-        console.log("------------");
+        console.log(`Trikampis ${this.arTrikampisEgzistuoja ? "egzistuoja" : "neegzistuoja"}.`);
+        console.log(`Trikampis ${this.arStatus ? "yra" : "nera"} statusis.`);
+        console.log("---------");
     }
     get perimetras() {
         return this.a + this.b + this.c;
     }
+    get arStatus() {
+        const a2 = this.a * this.a;
+        const b2 = this.b * this.b;
+        const c2 = this.c * this.c;
+        return a2 + b2 === c2 ||
+            a2 + c2 === b2 ||
+            b2 + c2 === a2;
+    }
     get arTrikampisEgzistuoja() {
         return this.a + this.b > this.c &&
             this.b + this.c > this.a &&
-            this.c + this.a > this.b;
-    }
-    get arTrikampisStatusis() {
-        return this.a * this.a + this.b * this.b === this.c * this.c;
+            this.a + this.c > this.b;
     }
 }
-const trikampis1 = new Trikampis(5, 6, 14);
-const trikampis2 = new Trikampis(12, 16, 25);
-trikampis1.spausdintiDuomenis();
-trikampis2.spausdintiDuomenis();
+const trikampiai = [new Trikampis(3, 4, 5)];
+trikampiai.push(new Trikampis(6, 3, 8));
+for (const trikampis of trikampiai) {
+    trikampis.spasudintiDuomenis();
+}

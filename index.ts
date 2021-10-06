@@ -111,6 +111,17 @@
  * egzistuoti.
  * 
  * 8. Papildykite klase metodu, kuris nurodo, ar trikampis yra statusis.
+ * 
+ * 9. Sukurkite masyvą, kuris saugo trikampių reikšmes,
+ * panaudodami ciklą atspausdinkite visų masyvę esančių trikampių
+ * duomenis.
+ *
+ * 10. ND: Papildykite programą funkcionalumu, kuris trikampių
+ * masyvą užpildo trikampiais (50 reikšmių), kurių kraštinės yra
+ * atsitiktinės reikšmės.
+ *
+ * Papildoma: Vėliau programa masyvą prafiltravus
+ * paliktų tik egzistuojančius trikampius ir atspausdintų jų duomenis.
  */
 
 
@@ -119,52 +130,54 @@ class Trikampis {
     public b: number;
     public c: number;
 
-    constructor(a: number, b: number, c: number) {
-        console.log("Konstruktorius iskviestas");
-
+    public constructor(a: number, b: number, c: number) {
         this.a = a;
         this.b = b;
         this.c = c;
     }
-    public spausdintiDuomenis(): void {
 
-        console.log(`Krastine A: ${this.a}`);
-        console.log(`Krastine B: ${this.b}`);
-        console.log(`Krastine C: ${this.c}`);
-        console.log(`Perimetras: ${this.perimetras}`)
+    public spasudintiDuomenis(): void {
+        console.log(`Krastine a: ${this.a}`);
+        console.log(`Krastine b: ${this.b}`);
+        console.log(`Krastine b: ${this.c}`);
+        console.log(`Perimetras: ${this.perimetras}`);
 
         if (this.arTrikampisEgzistuoja) {
             console.log("Trikampis egzistuoja!");
         } else {
-            console.log("Trikampis neagzistuoja!");
+            console.log("Trikampis neegzistuoja!");
         }
-        console.log("------------");
 
-        if (this.arTrikampisStatusis) {
-            console.log("Trikampis status!");
-        } else {
-            console.log("Trikampis ne status!");
-        }
-        console.log("------------");
+        console.log(`Trikampis ${this.arTrikampisEgzistuoja ? "egzistuoja" : "neegzistuoja"}.`);
+        console.log(`Trikampis ${this.arStatus ? "yra" : "nera"} statusis.`);
+
+        console.log("---------");
     }
 
     public get perimetras(): number {
         return this.a + this.b + this.c;
     }
 
+    public get arStatus(): boolean {
+        const a2 = this.a * this.a;
+        const b2 = this.b * this.b;
+        const c2 = this.c * this.c;
+
+        return a2 + b2 === c2 ||
+            a2 + c2 === b2 ||
+            b2 + c2 === a2;
+    }
+
     public get arTrikampisEgzistuoja(): boolean {
         return this.a + this.b > this.c &&
             this.b + this.c > this.a &&
-            this.c + this.a > this.b;
-    }
-
-    public get arTrikampisStatusis(): boolean {
-        return this.a * this.a + this.b * this.b === this.c * this.c;
+            this.a + this.c > this.b;
     }
 }
 
-const trikampis1 = new Trikampis(5, 6, 14);
-const trikampis2 = new Trikampis(12, 16, 25);
+const trikampiai: Trikampis[] = [new Trikampis(3, 4, 5)];
+trikampiai.push(new Trikampis(6, 3, 8));
 
-trikampis1.spausdintiDuomenis();
-trikampis2.spausdintiDuomenis();
+for (const trikampis of trikampiai) {
+    trikampis.spasudintiDuomenis();
+}
