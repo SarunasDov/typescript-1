@@ -173,6 +173,18 @@ class Trikampis {
             this.b + this.c > this.a &&
             this.a + this.c > this.b;
     }
+
+    // Math.random(); // [0-1], pvz 0.5, 0.3 ir t.t.
+
+    // 0.5 * 100 = 50
+    // Math.random() * 100 = [0 - 100)
+    // 5 + Math.random() * 45 = [5 - 50)
+
+    // function range(from: number, to: number): number {
+    //     return from + Math.random() * (to - from);
+    // }
+
+    // console.log(range());
 }
 
 const trikampiai: Trikampis[] = [new Trikampis(3, 4, 5)];
